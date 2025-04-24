@@ -31,29 +31,31 @@ cd /path/to/your/project
 
 # Create a virtual environment (you can replace 'scrap_env' with any name)
 python3 -m venv scrap_env
+````
 
 ## 2. Activate the Virtual Environment
 
 #### For macOS/Linux:
 
-```bash
+````bash
 source scrap_env/bin/activate
+````
 
 ## 3. Install Dependencies
 
 With your virtual environment activated, install the required libraries:
 
-```bash
+````bash
 pip install beautifulsoup4 requests
-
+````
 
 ## 4. Run the Scraper
 
 You can now run the scraper:
 
-```bash
+````bash
 python scraper.py
-
+````
 
 ## 5. Discord Integration
 
@@ -69,9 +71,9 @@ This project also integrates with Discord. To use the Discord bot functionality,
 
 The bot listens for a specific message (`!scrape`) to scrape products and send them to your Discord channel.
 
-The bot responds to `!s` by scraping product details from Amazon UK and sends the results as rich embeds to the Discord channel.
+The bot responds to `!scrape` by scraping product details from Amazon and sends the results as rich embeds to the Discord channel.
 
 Discord reference link below:
 [Discord Developers](https://discord.com/developers/build)
 [DiscordPy](https://discordpy.readthedocs.io/en/stable/)
-````
+
