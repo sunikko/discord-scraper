@@ -21,7 +21,7 @@ To install the necessary libraries, follow the steps below.
 
 ## Setup and Installation
 
-### 1. Create a Virtual Environment
+### 1. Setting Up the Virtual Environment and Installing Dependencies
 
 To isolate dependencies, it's recommended to use a virtual environment.
 
@@ -31,33 +31,17 @@ cd /path/to/your/project
 
 # Create a virtual environment (you can replace 'scrap_env' with any name)
 python3 -m venv scrap_env
-````
-
-## 2. Activate the Virtual Environment
-
-#### For macOS/Linux:
-
-````bash
 source scrap_env/bin/activate
-````
 
-## 3. Install Dependencies
-
-With your virtual environment activated, install the required libraries:
-
-````bash
+# Install Dependencies
 pip install beautifulsoup4 requests
-````
 
-## 4. Run the Scraper
-
-You can now run the scraper:
-
-````bash
+# Run the Scraper
 python scraper.py
+
 ````
 
-## 5. Discord Integration
+## 2. Discord Integration
 
 This project also integrates with Discord. To use the Discord bot functionality, follow the steps below:
 
