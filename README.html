@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Web Scraper Example</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="web-scraper-example">Web Scraper Example</h1>
+<p>This project is a Python-based web scraper designed to demonstrate web scraping skills. The scraper extracts product details, such as title, price, image URL, and product URL, from e-commerce websites like Amazon (used as a sample). It shows how to interact with a website, parse its content, and filter out unwanted results.</p>
+<p><strong>Note:</strong> The scraper is not specifically targeting Amazon, but rather it’s an example of how to use web scraping techniques in Python. The Amazon UK page is used here for demonstration purposes.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Scrapes product information from an e-commerce website (Amazon UK in this case).</li>
+<li>Excludes sponsored products.</li>
+<li>Configured headers to prevent blocking by Amazon.</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li><strong>Python 3.x</strong></li>
+<li><strong>Libraries</strong>:
+<ul>
+<li><code>beautifulsoup4</code></li>
+<li><code>requests</code></li>
+</ul>
+</li>
+</ol>
+<p>To install the necessary libraries, follow the steps below.</p>
+<h2 id="setup-and-installation">Setup and Installation</h2>
+<h3 id="1-create-a-virtual-environment">1. Create a Virtual Environment</h3>
+<p>To isolate dependencies, it's recommended to use a virtual environment.</p>
+<pre><code class="language-bash"><span class="hljs-comment"># Navigate to your project folder</span>
+<span class="hljs-built_in">cd</span> /path/to/your/project
+<span class="hljs-comment"># Create a virtual environment (you can replace &#x27;scrap_env&#x27; with any name)</span>
+python3 -m venv scrap_env
+```
+<span class="hljs-comment">## 2. Activate the Virtual Environment</span>
+
+<span class="hljs-comment">#### For macOS/Linux:</span>
+
+```bash
+<span class="hljs-built_in">source</span> scrap_env/bin/activate
+</code></pre>
+<h2 id="3-install-dependencies">3. Install Dependencies</h2>
+<p>With your virtual environment activated, install the required libraries:</p>
+<pre><code class="language-bash">pip install beautifulsoup4 requests
+</code></pre>
+<h2 id="4-run-the-scraper">4. Run the Scraper</h2>
+<p>You can now run the scraper:</p>
+<pre><code class="language-bash">python scraper.py
+</code></pre>
+<h2 id="5-discord-integration">5. Discord Integration</h2>
+<p>This project also integrates with Discord. To use the Discord bot functionality, follow the steps below:</p>
+<h3 id="create-a-discord-bot">Create a Discord Bot:</h3>
+<ol>
+<li>Go to the <a href="https://discord.com/developers/applications">Discord Developer Portal</a>.</li>
+<li>Create a new application and add a bot.</li>
+<li>Get the bot token from the &quot;Bot&quot; tab.</li>
+</ol>
+<h3 id="run-the-discord-bot">Run the Discord Bot:</h3>
+<p>The bot listens for a specific message (<code>!scrape</code>) to scrape products and send them to your Discord channel.</p>
+<p>The bot responds to <code>!s</code> by scraping product details from Amazon UK and sends the results as rich embeds to the Discord channel.</p>
+<p>Discord reference link below:
+<a href="https://discord.com/developers/build">Discord Developers</a>
+<a href="https://discordpy.readthedocs.io/en/stable/">DiscordPy</a></p>
+
+            
+            
+        </body>
+        </html>
